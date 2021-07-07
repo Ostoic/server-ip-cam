@@ -2,10 +2,10 @@
 EYEHOST="10.179.205.142"
 
 function capture-eye() {
-  EYEDIR=$(date "+%d.%m.%y")
+  EYEDIR="pictures/$(date "+%d.%m.%y")"
   OUTPATH="$EYEDIR/eye-$(date "+%s").jpg"
-  if [[ ! -d $EYEDIR ]]; then
-    mkdir $EYEDIR
+  if [[ ! -d "$EYEDIR" ]]; then
+    mkdir "$EYEDIR"
   fi
 
   if [[ ! -f $OUTPATH ]] ; then

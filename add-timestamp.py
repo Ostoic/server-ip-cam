@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, UnidentifiedImageError
 from datetime import datetime
 from glob import glob
 import re
@@ -32,7 +32,12 @@ def timestamp_video(directory):
     os.chdir(directory)
     try:
         for file in glob('eye-*.jpg'):
-            timestamp_picture(file)
+            try:
+                timestamp_picture(file)
+            except UnidentifiedImageError as e:
+                print(e)
+                pass
+
     except Exception as e:
         print(e)
         print('Uh oh')
