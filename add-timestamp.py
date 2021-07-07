@@ -33,6 +33,11 @@ def timestamp_video(directory):
     try:
         for file in glob('eye-*.jpg'):
             timestamp_picture(file)
+    except Exception as e:
+        print(e)
+        print('Uh oh')
+        raise e
+
     finally:
         os.chdir(old_dir)
 
